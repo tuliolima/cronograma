@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Formação de Líderes</title>
+  <meta name="theme-color" content="#024993">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Cronograma">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/png" href="icons/favicon-32.png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="cabecalho">
+    <h1 id="titulo">Formação de Líderes</h1>
+    <nav id="abas" class="abas" aria-label="Dias do Evento" hidden></nav>
+  </header>
+
+  <div id="aviso" class="aviso" role="alert" hidden></div>
+
+  <main id="linha-do-tempo" class="linha-do-tempo" aria-live="polite">
+    <p class="mensagem">Carregando cronograma…</p>
+  </main>
+
+  <button id="botao-agora" class="botao-agora" type="button" hidden>Agora</button>
+
+  <dialog id="detalhes" class="detalhes">
+    <form method="dialog">
+      <button class="fechar" aria-label="Fechar">×</button>
+    </form>
+    <h2 id="detalhes-nome"></h2>
+    <p id="detalhes-horario" class="detalhes-info"></p>
+    <p id="detalhes-local" class="detalhes-info"></p>
+    <p id="detalhes-descricao" class="detalhes-descricao"></p>
+  </dialog>
+</body>
+</html>

@@ -1,0 +1,81 @@
+# Cronograma do Evento.
+#
+# Cada Dia é uma data no formato AAAA-MM-DD com a lista de Atividades.
+# Campos de cada Atividade:
+#   nome       (obrigatório)
+#   inicio     (obrigatório) horário "HH:MM", entre aspas
+#   fim        (obrigatório) horário "HH:MM"; se for menor que o início, termina no dia seguinte
+#   local      (opcional)
+#   descricao  (opcional) texto livre; use "|" para várias linhas. Links viram clicáveis.
+#
+# Todos os horários são no fuso abaixo, independentemente do fuso do celular.
+
+nome: Formação de Líderes
+fuso: America/Sao_Paulo
+
+dias:
+  2026-10-09:
+    - nome: Credenciamento
+      inicio: "08:00"
+      fim: "09:00"
+      local: Recepção
+    - nome: Abertura
+      inicio: "09:00"
+      fim: "10:00"
+      local: Auditório
+      descricao: |
+        Boas-vindas e apresentação da programação.
+    - nome: Painel – Liderança servidora
+      inicio: "10:15"
+      fim: "12:00"
+      local: Auditório
+    - nome: Almoço
+      inicio: "12:00"
+      fim: "13:30"
+      local: Refeitório
+    - nome: Oficina A – Comunicação
+      inicio: "14:00"
+      fim: "15:30"
+      local: Sala 1
+    - nome: Oficina B – Gestão de conflitos
+      inicio: "14:00"
+      fim: "16:00"
+      local: Sala 2
+    - nome: Intervalo
+      inicio: "16:00"
+      fim: "16:15"
+    - nome: Palestra principal
+      inicio: "16:30"
+      fim: "18:00"
+      local: Auditório
+      descricao: |
+        Material de apoio em https://exemplo.com/material
+    - nome: Jantar
+      inicio: "19:00"
+      fim: "20:30"
+      local: Refeitório
+    - nome: Noite de louvor
+      inicio: "21:00"
+      fim: "23:00"
+      local: Auditório
+    - nome: Fogueira
+      inicio: "23:00"
+      fim: "00:30"
+      local: Área externa
+
+  2026-10-10:
+    - nome: Café da manhã
+      inicio: "07:30"
+      fim: "08:30"
+      local: Refeitório
+    - nome: Devocional
+      inicio: "08:30"
+      fim: "09:00"
+      local: Auditório
+    - nome: Dinâmica em grupos
+      inicio: "09:00"
+      fim: "11:30"
+    - nome: Encerramento
+      inicio: "11:30"
+      fim: "12:30"
+      local: Auditório
