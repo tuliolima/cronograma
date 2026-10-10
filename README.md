@@ -13,6 +13,15 @@ npm start      # http://localhost:8000
 npm test       # testes da lógica (node:test, sem dependências)
 ```
 
+## Alterar o código do site
+
+O site funciona offline por meio de um service worker ([`sw.js`](sw.js)), que guarda uma cópia dos arquivos no celular. Ao mudar o código (HTML, CSS, JS, ícones), e não só o `cronograma.yaml`:
+
+1. **Incremente a versão do cache** em `sw.js` (`const CACHE = 'cronograma-vN'`). É a mudança nesse arquivo que faz quem está com o app aberto receber a versão nova e recarregar sozinho. Sem isso, o código novo só chega quando a pessoa fechar e abrir o app de novo.
+2. **Se criar um arquivo novo** que o site usa, adicione-o à lista `ARQUIVOS` em `sw.js`, para que ele funcione offline.
+
+Mudanças só no `cronograma.yaml` não precisam de nada disso: ele é buscado de novo sempre que o app volta do segundo plano.
+
 ## Publicar no GitHub Pages
 
 1. Crie o repositório público `cronograma` no GitHub e faça push da `master`.
