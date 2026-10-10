@@ -317,6 +317,7 @@ el.botaoAgora.addEventListener('click', () => {
 
 document.addEventListener('visibilitychange', async () => {
   if (document.visibilityState !== 'visible') return;
+  navigator.serviceWorker?.getRegistration().then((registro) => registro?.update());
   await carregar();
   renderizar();
 });
@@ -324,6 +325,14 @@ document.addEventListener('visibilitychange', async () => {
 setInterval(renderizar, INTERVALO_DE_ATUALIZACAO);
 
 if ('serviceWorker' in navigator) {
+  // Quando uma versão nova do site assume, recarrega para não seguir rodando o
+  // código antigo (o app instalado pode ficar dias aberto em segundo plano).
+  // Na primeira instalação não havia versão anterior, então não recarrega.
+  let controladorAtual = navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (controladorAtual) location.reload();
+    controladorAtual = navigator.serviceWorker.controller;
+  });
   navigator.serviceWorker.register('sw.js').catch(() => {});
 }
 

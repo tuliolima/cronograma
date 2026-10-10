@@ -1,7 +1,9 @@
 // Service worker: rede primeiro, cache como reserva. Quem está online sempre vê
 // a versão mais nova; offline (ou com a rede lenta demais) usa a última cópia.
 
-const CACHE = 'cronograma-v1';
+// Ao mudar o código do site (não o cronograma.yaml), incremente esta versão:
+// é a mudança neste arquivo que faz quem está com o app aberto recarregar.
+const CACHE = 'cronograma-v2';
 const TEMPO_LIMITE_DA_REDE = 4000;
 const ARQUIVOS = [
   './',
@@ -19,7 +21,9 @@ const ARQUIVOS = [
 ];
 
 self.addEventListener('install', (evento) => {
-  evento.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ARQUIVOS)));
+  // `reload` ignora o cache HTTP do navegador (o GitHub Pages manda guardar por 10 min).
+  const requisicoes = ARQUIVOS.map((url) => new Request(url, { cache: 'reload' }));
+  evento.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(requisicoes)));
   self.skipWaiting();
 });
 
@@ -36,7 +40,8 @@ self.addEventListener('fetch', (evento) => {
   const { request } = evento;
   if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) return;
 
-  const daRede = fetch(request).then(async (resposta) => {
+  // `no-cache` revalida com o servidor em vez de usar a cópia do cache HTTP do navegador.
+  const daRede = fetch(request, { cache: 'no-cache' }).then(async (resposta) => {
     if (resposta.ok) {
       const cache = await caches.open(CACHE);
       await cache.put(request, resposta.clone());
