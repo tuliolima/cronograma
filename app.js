@@ -221,6 +221,13 @@ function criarCard(atividade, dia, momento, { y, coluna, colunas }) {
   info.textContent = [horarioDaAtividade(atividade), atividade.local].filter(Boolean).join(' · ');
 
   card.append(nome, info);
+
+  if (atividade.responsavel) {
+    const responsavel = document.createElement('span');
+    responsavel.className = 'card-info card-responsavel';
+    responsavel.textContent = `Responsável: ${atividade.responsavel}`;
+    card.append(responsavel);
+  }
   card.addEventListener('click', () => abrirDetalhes(atividade));
   return card;
 }

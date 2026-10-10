@@ -224,6 +224,11 @@ body {
   flex-shrink: 0;
 }
 
+/* Em cards curtos não há espaço; o Responsável continua no popup. */
+.card.compacto .card-responsavel {
+  display: none;
+}
+
 .card.em-andamento {
   border: 2px solid var(--amarelo);
   border-left-width: 6px;
