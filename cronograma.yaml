@@ -56,7 +56,7 @@ dias:
       local: Refeitório
     - nome: Noite de louvor
       inicio: "21:00"
-      fim: "23:00"
+      fim: "24:00"
       local: Auditório
     - nome: Fogueira
       inicio: "23:00"
