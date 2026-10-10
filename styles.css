@@ -21,6 +21,9 @@
   --aviso-texto: #8a1517;
 
   --largura-horas: 3.25rem;
+  --largura-maxima: 48rem;
+  /* Recuo lateral que só existe quando a tela é mais larga que --largura-maxima. */
+  --recuo: max(0px, (100% - var(--largura-maxima)) / 2);
   color-scheme: light;
 }
 
@@ -69,8 +72,8 @@ body {
   z-index: 10;
   background: var(--cabecalho-fundo);
   color: var(--cabecalho-texto);
-  padding: calc(0.75rem + env(safe-area-inset-top)) calc(1rem + env(safe-area-inset-right)) 0
-    calc(1rem + env(safe-area-inset-left));
+  padding: calc(0.75rem + env(safe-area-inset-top)) calc(1rem + max(env(safe-area-inset-right), var(--recuo))) 0
+    calc(1rem + max(env(safe-area-inset-left), var(--recuo)));
   box-shadow: 0 2px 6px rgb(0 0 0 / 0.15);
 }
 
@@ -116,7 +119,7 @@ body {
 /* Aviso de erro no cronograma */
 
 .aviso {
-  margin: 0.75rem 1rem 0;
+  margin: 0.75rem calc(1rem + var(--recuo)) 0;
   padding: 0.75rem 1rem;
   border-radius: 8px;
   background: var(--aviso-fundo);
@@ -136,8 +139,8 @@ body {
 /* Linha do tempo */
 
 .linha-do-tempo {
-  padding: 1rem calc(0.5rem + env(safe-area-inset-right)) calc(5rem + env(safe-area-inset-bottom))
-    env(safe-area-inset-left);
+  padding: 1rem calc(0.5rem + max(env(safe-area-inset-right), var(--recuo))) calc(5rem + env(safe-area-inset-bottom))
+    max(env(safe-area-inset-left), var(--recuo));
 }
 
 .mensagem {
@@ -259,7 +262,7 @@ body {
 
 .botao-agora {
   position: fixed;
-  right: calc(1rem + env(safe-area-inset-right));
+  right: calc(1rem + max(env(safe-area-inset-right), var(--recuo)));
   bottom: calc(1rem + env(safe-area-inset-bottom));
   z-index: 5;
   border: 0;
