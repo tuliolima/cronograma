@@ -137,7 +137,7 @@ function rotuloDoDia(data) {
 }
 
 function renderizarAbas() {
-  el.abas.hidden = cronograma.dias.length < 2;
+  el.abas.hidden = false;
   el.abas.setAttribute('role', 'tablist');
   const abas = cronograma.dias.map((dia) => {
     const aba = document.createElement('button');
