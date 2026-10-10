@@ -207,26 +207,51 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
+.card-principal {
+  display: contents;
+}
+
+/* Card compacto: tudo numa linha só. Se o Responsável não couber inteiro na
+   largura, ele quebra para a segunda linha, que o row-gap empurra para fora
+   do card (overflow: hidden). Assim ele some em vez de aparecer cortado. */
 .card.compacto {
   flex-direction: row;
+  flex-wrap: wrap;
+  align-content: flex-start;
   align-items: baseline;
-  gap: 0.375rem;
+  gap: 4rem 0.375rem;
   padding-block: 0.125rem;
 }
 
-.card.compacto > span {
+.card.compacto .card-principal {
+  display: flex;
+  align-items: baseline;
+  gap: 0.375rem;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.card.compacto .card-nome,
+.card.compacto .card-info {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.card.compacto .card-nome {
+  min-width: 0;
 }
 
 .card.compacto .card-info {
   flex-shrink: 0;
 }
 
-/* Em cards curtos não há espaço; o Responsável continua no popup. */
 .card.compacto .card-responsavel {
-  display: none;
+  white-space: nowrap;
+}
+
+.card.compacto .card-responsavel::before {
+  content: "· ";
 }
 
 .card.em-andamento {

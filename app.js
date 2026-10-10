@@ -206,7 +206,8 @@ function criarCard(atividade, dia, momento, { y, coluna, colunas }) {
   const card = document.createElement('button');
   card.type = 'button';
   card.className = `card ${estadoDaAtividade(atividade, dia, momento)}`;
-  if (altura < ALTURA_CARD_COMPACTO) card.classList.add('compacto');
+  const compacto = altura < ALTURA_CARD_COMPACTO;
+  if (compacto) card.classList.add('compacto');
   card.style.top = `${y(atividade.inicio) + 1}px`;
   card.style.height = `${altura}px`;
   card.style.left = `calc(${(coluna / colunas) * 100}% + 1px)`;
@@ -220,12 +221,17 @@ function criarCard(atividade, dia, momento, { y, coluna, colunas }) {
   info.className = 'card-info';
   info.textContent = [horarioDaAtividade(atividade), atividade.local].filter(Boolean).join(' · ');
 
-  card.append(nome, info);
+  // Nome e horário ficam juntos para que, no card compacto, o Responsável seja
+  // o único item que pode ir para a linha escondida quando faltar espaço.
+  const principal = document.createElement('span');
+  principal.className = 'card-principal';
+  principal.append(nome, info);
+  card.append(principal);
 
   if (atividade.responsavel) {
     const responsavel = document.createElement('span');
     responsavel.className = 'card-info card-responsavel';
-    responsavel.textContent = `Responsável: ${atividade.responsavel}`;
+    responsavel.textContent = `${compacto ? 'Resp.' : 'Responsável'}: ${atividade.responsavel}`;
     card.append(responsavel);
   }
   card.addEventListener('click', () => abrirDetalhes(atividade));
