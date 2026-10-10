@@ -152,7 +152,7 @@ body {
 /* Linha do tempo */
 
 .linha-do-tempo {
-  padding: 1rem calc(0.5rem + max(env(safe-area-inset-right), var(--recuo))) calc(5rem + env(safe-area-inset-bottom))
+  padding: 1rem calc(0.5rem + max(env(safe-area-inset-right), var(--recuo))) calc(5rem + var(--altura-instalar, 0px) + env(safe-area-inset-bottom))
     max(env(safe-area-inset-left), var(--recuo));
 }
 
@@ -306,7 +306,7 @@ body {
 .botao-agora {
   position: fixed;
   right: calc(1rem + max(env(safe-area-inset-right), var(--recuo)));
-  bottom: calc(1rem + env(safe-area-inset-bottom));
+  bottom: calc(1rem + var(--altura-instalar, 0px) + env(safe-area-inset-bottom));
   z-index: 5;
   border: 0;
   border-radius: 999px;
@@ -317,6 +317,80 @@ body {
   font-weight: 700;
   box-shadow: 0 4px 12px rgb(0 0 0 / 0.25);
   cursor: pointer;
+}
+
+/* Aviso de instalação */
+
+.instalar {
+  position: fixed;
+  left: max(env(safe-area-inset-left), var(--recuo));
+  right: max(env(safe-area-inset-right), var(--recuo));
+  bottom: 0;
+  z-index: 6;
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
+  border-radius: 16px 16px 0 0;
+  background: var(--superficie);
+  color: var(--texto);
+  box-shadow: 0 -4px 20px rgb(0 0 0 / 0.2);
+}
+
+.instalar-logo {
+  flex-shrink: 0;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 10px;
+}
+
+.instalar-conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+.instalar-titulo {
+  margin: 0;
+  font-weight: 700;
+}
+
+.instalar-texto {
+  margin: 0.25rem 0 0;
+  font-size: 0.875rem;
+  color: var(--texto-suave);
+  line-height: 1.4;
+}
+
+.icone-compartilhar {
+  width: 1.15em;
+  height: 1.15em;
+  vertical-align: -0.2em;
+  color: #0a84ff;
+}
+
+.instalar-acoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.instalar-acoes button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.5rem 1rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.instalar-fechar {
+  background: none;
+  color: var(--texto-suave);
+}
+
+.instalar-botao {
+  background: var(--azul);
+  color: #ffffff;
 }
 
 /* Popup de detalhes */

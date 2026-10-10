@@ -10,6 +10,7 @@ import {
   diaInicial,
   layoutDoDia,
 } from './lib/cronograma.js';
+import { configurarAvisoDeInstalacao } from './instalacao.js';
 
 const ARQUIVO_DO_CRONOGRAMA = 'cronograma.yaml';
 const CHAVE_ULTIMO_VALIDO = 'cronograma:ultimo-valido';
@@ -323,6 +324,8 @@ document.addEventListener('visibilitychange', async () => {
 });
 
 setInterval(renderizar, INTERVALO_DE_ATUALIZACAO);
+
+configurarAvisoDeInstalacao();
 
 if ('serviceWorker' in navigator) {
   // Quando uma versão nova do site assume, recarrega para não seguir rodando o
