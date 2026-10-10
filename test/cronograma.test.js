@@ -29,6 +29,8 @@ dias:
       inicio: "09:00"
       fim: "10:00"
       local: Auditório
+      palestrante: Maria Souza
+      responsavel: João Lima
       descricao: |
         Boas-vindas.
         Mais em https://exemplo.com
@@ -66,6 +68,9 @@ describe('interpretarCronograma', () => {
     assert.equal(abertura.inicio, 9 * 60);
     assert.equal(abertura.fim, 10 * 60);
     assert.equal(abertura.local, 'Auditório');
+    assert.equal(abertura.palestrante, 'Maria Souza');
+    assert.equal(abertura.responsavel, 'João Lima');
+    assert.equal(c.dias[0].atividades[1].palestrante, '');
     assert.equal(abertura.descricao, 'Boas-vindas.\nMais em https://exemplo.com');
   });
 

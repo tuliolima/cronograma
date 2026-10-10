@@ -28,6 +28,8 @@ const el = {
   detalhesNome: document.getElementById('detalhes-nome'),
   detalhesHorario: document.getElementById('detalhes-horario'),
   detalhesLocal: document.getElementById('detalhes-local'),
+  detalhesPalestrante: document.getElementById('detalhes-palestrante'),
+  detalhesResponsavel: document.getElementById('detalhes-responsavel'),
   detalhesDescricao: document.getElementById('detalhes-descricao'),
 };
 
@@ -240,11 +242,17 @@ function mensagem(texto) {
 function abrirDetalhes(atividade) {
   el.detalhesNome.textContent = atividade.nome;
   el.detalhesHorario.textContent = horarioDaAtividade(atividade);
-  el.detalhesLocal.textContent = atividade.local;
-  el.detalhesLocal.hidden = !atividade.local;
+  preencherInfo(el.detalhesLocal, atividade.local);
+  preencherInfo(el.detalhesPalestrante, atividade.palestrante && `Palestrante: ${atividade.palestrante}`);
+  preencherInfo(el.detalhesResponsavel, atividade.responsavel && `Responsável: ${atividade.responsavel}`);
   el.detalhesDescricao.replaceChildren(...textoComLinks(atividade.descricao));
   el.detalhesDescricao.hidden = !atividade.descricao;
   el.detalhes.showModal();
+}
+
+function preencherInfo(elemento, texto) {
+  elemento.textContent = texto;
+  elemento.hidden = !texto;
 }
 
 /** Quebra o texto em nós, transformando URLs em links clicáveis. */

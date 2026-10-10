@@ -2,11 +2,13 @@
 #
 # Cada Dia é uma data no formato AAAA-MM-DD com a lista de Atividades.
 # Campos de cada Atividade:
-#   nome       (obrigatório)
-#   inicio     (obrigatório) horário "HH:MM", entre aspas
-#   fim        (obrigatório) horário "HH:MM"; se for menor que o início, termina no dia seguinte
-#   local      (opcional)
-#   descricao  (opcional) texto livre; use "|" para várias linhas. Links viram clicáveis.
+#   nome         (obrigatório)
+#   inicio       (obrigatório) horário "HH:MM", entre aspas
+#   fim          (obrigatório) horário "HH:MM"; se for menor que o início, termina no dia seguinte
+#   local        (opcional)
+#   palestrante  (opcional) quem apresenta a Atividade
+#   responsavel  (opcional) quem coordena a Atividade
+#   descricao    (opcional) texto livre; use "|" para várias linhas. Links viram clicáveis.
 #
 # Todos os horários são no fuso abaixo, independentemente do fuso do celular.
 
@@ -48,6 +50,8 @@ dias:
       inicio: "16:30"
       fim: "18:00"
       local: Auditório
+      palestrante: Maria Souza
+      responsavel: João Lima
       descricao: |
         Material de apoio em https://exemplo.com/material
     - nome: Jantar

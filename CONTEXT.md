@@ -12,6 +12,13 @@ _Avoid_: programação, agenda
 Item da programação, com início, fim, nome, local e detalhes, que aparece como um card na linha do tempo.
 _Avoid_: evento, sessão, item
 
+**Palestrante**:
+Pessoa que apresenta ou conduz o conteúdo de uma Atividade. Opcional.
+
+**Responsável**:
+Pessoa que coordena a Atividade nos bastidores e responde por ela. Opcional; pode ser diferente do Palestrante.
+_Avoid_: organizador, coordenador
+
 **Estado da Atividade**:
 Situação de uma Atividade em relação ao horário atual: **futura** (ainda não começou), **em andamento** (já começou e não terminou) ou **encerrada** (já terminou). Toda Atividade tem início e fim; um marco pontual é uma Atividade de curta duração.
 
