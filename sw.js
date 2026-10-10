@@ -3,7 +3,7 @@
 
 // Ao mudar o código do site (não o cronograma.yaml), incremente esta versão:
 // é a mudança neste arquivo que faz quem está com o app aberto recarregar.
-const CACHE = 'cronograma-v2';
+const CACHE = 'cronograma-v3';
 const TEMPO_LIMITE_DA_REDE = 4000;
 const ARQUIVOS = [
   './',
