@@ -46,6 +46,7 @@ dias:
     - nome: Intervalo
       inicio: "16:00"
       fim: "16:15"
+      local: Auditório
     - nome: Palestra principal
       inicio: "16:30"
       fim: "18:00"
@@ -60,7 +61,7 @@ dias:
       local: Refeitório
     - nome: Noite de louvor
       inicio: "21:00"
-      fim: "23:00"
+      fim: "00:00"
       local: Auditório
     - nome: Fogueira
       inicio: "23:00"
