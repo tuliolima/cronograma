@@ -31,10 +31,15 @@ dias:
       local: Sala
     - nome: 'Pregação: Amor de Deus'
       inicio: '10:00'
-      fim: '11:30'
+      fim: '11:15'
       local: Sala
       responsavel: Iveraldo
       palestrante: Iveraldo
+    - nome: 'Deserto'
+      inicio: '11:15'
+      fim: '11:30'
+      local: Igreja
+      responsavel: Kamila
     - nome: 'Partilha'
       inicio: '11:30'
       fim: '12:00'
