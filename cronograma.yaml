@@ -41,7 +41,7 @@ dias:
       local: Sala
       responsavel: Sarah
     - nome: Almoço
-      inicio: '12:00'
+      inicio: '12:30'
       fim: '13:30'
       local: Salão
       responsavel: Tios
