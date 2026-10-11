@@ -24,7 +24,7 @@ dias:
     - nome: Café da manhã
       inicio: '08:30'
       fim: '09:30'
-      local: Hall
+      local: Salão 
     - nome: Oração da manhã
       inicio: '09:30'
       fim: '10:00'
@@ -39,11 +39,12 @@ dias:
       inicio: '11:30'
       fim: '12:00'
       local: Sala
-      responsavel: Indefinido
+      responsavel: Sarah
     - nome: Almoço
       inicio: '12:00'
-      fim: '13:00'
+      fim: '13:30'
       local: Salão
+      responsavel: Tios
     - nome: Dinâmica de improviso
       inicio: '13:30'
       fim: '14:00'
@@ -58,13 +59,13 @@ dias:
       inicio: '15:00'
       fim: '15:30'
       local: Santíssimo
-      responsavel: Indefinido
+      responsavel: Kamila
     - nome: Adoração
       inicio: '15:30'
       fim: '16:30'
       local: Santíssimo
       responsavel: Danilo
-    - nome: Partilha
+    - nome: Conversa sobre o encontro
       inicio: '16:30'
       fim: '17:00'
       local: Sala
@@ -72,4 +73,4 @@ dias:
     - nome: Lanche
       inicio: '17:00'
       fim: '17:30'
-      local: Hall
+      local: Salão
